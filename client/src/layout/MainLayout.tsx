@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayout: React.FC<PropsWithChildren> = ({ children }) => {
+    const token = localStorage.getItem('token');
     return (
-        <div className="h-[100vh] flex flex-col">
-            <Navbar />
-            <div className='flex flex-1'>
-                <Sidebar />
-                {children}
-            </div>
-        </div>
+        <>
+            {token ? (
+                <div className="h-[100vh] flex flex-col">
+                    <Navbar />
+                    <div className='flex flex-1'>
+                        <Sidebar />
+                        {children}
+                    </div>
+                </div>
+            ) :
+                (
+                    <div className="h-[100vh]">
+                        {children}
+                    </div>
+                )}
+        </>
     );
 };
 
