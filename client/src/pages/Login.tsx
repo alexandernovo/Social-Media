@@ -1,18 +1,17 @@
 import React from 'react'
-import bg from '../assets/images/bg.jpg'
-import InputFloatingLabel from '../components/InputFloatingLabel'
+import bg from '@images/bg.jpg'
+import InputFloatingLabel from '@components/InputFloatingLabel'
 
 const Login: React.FC = () => {
     return (
         <div className="h-[100vh] w-100 flex">
-            <div className="lg:w-1/2 flex flex-col items-center h-[100%] justify-center">
-                {/* <p className="font-bold text-[30px]">Platform that connect us together.</p> */}
+            <div className="lg:w-1/2 flex items-center h-[100%] justify-center">
                 <img src={bg} />
             </div>
             <div className="lg:w-1/2 flex items-center justify-center">
                 <div className="w-1/2">
-                    <InputFloatingLabel label="Username" classes='mb-4' />
-                    <InputFloatingLabel label="Password" type='password' />
+                    <InputFloatingLabel Id='username' Label="Username" Class='mb-4' />
+                    <InputFloatingLabel Id='password' Label="Password" Type='password' />
                 </div>
             </div>
         </div>

@@ -1,8 +1,11 @@
-import React, { PropsWithChildren } from 'react';
-import Sidebar from '../components/Sidebar';
-import Navbar from '../components/Navbar';
+import React from 'react';
+import Sidebar from '@components/Sidebar';
+import Navbar from '@components/Navbar';
+interface MainLayoutProps {
+    children: React.ReactNode,
+}
 
-const MainLayout: React.FC<PropsWithChildren> = ({ children }) => {
+const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
     const token = localStorage.getItem('token');
     return (
         <>
@@ -11,13 +14,13 @@ const MainLayout: React.FC<PropsWithChildren> = ({ children }) => {
                     <Navbar />
                     <div className='flex flex-1'>
                         <Sidebar />
-                        {children}
+                        {props.children}
                     </div>
                 </div>
             ) :
                 (
                     <div className="h-[100vh]">
-                        {children}
+                        {props.children}
                     </div>
                 )}
         </>
