@@ -27,7 +27,8 @@
       "@middleware/*": ["src/middleware/*"],
       "@layout/*": ["src/layout/*"],
       "@images/*": ["src/assets/images/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@store/*": ["src/store/*"]
     }
   },
   "include": ["src"],
