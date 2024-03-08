@@ -29,8 +29,10 @@ const Login: React.FC = () => {
             const response = await axios.post('/api/users/auth', { username, password });
             if (response.data && response.data.status === 'success') {
                 const { token, userdata } = response.data;
-                console.log(response.data);
+                console.log(userdata);
+                
                 const userToStore = {
+                    _id: userdata._id,
                     token: token,
                     firstname: userdata.firstname,
                     lastname: userdata.lastname,
