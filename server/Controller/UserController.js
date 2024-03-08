@@ -69,7 +69,7 @@ class UserController {
                 if (passwordMatch) {
                     // Passwords match, generate a JWT token
                     const token = jwt.sign({ userId: existingUser.id }, process.env.SECRET_KEY, { expiresIn: '1h' });
-                    return res.status(200).json({ status: 'success', message: 'Authentication successful.', token });
+                    return res.status(200).json({ status: 'success', userdata: existingUser, message: 'Authentication successful.', token });
                 } else {
                     // Passwords do not match
                     return res.status(401).json({ errorCall: 'password', message: 'Incorrect password.' });
