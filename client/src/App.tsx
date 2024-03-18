@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import MainLayout from '@layout/MainLayout'
 import Login from '@pages/Login'
 import NotFound from '@pages/NotFound'
-import Home from '@pages/Login'
+import Home from '@pages/Home'
 import PrivateRoutes from '@middleware/PrivateRoutes'
 
 function App() {
