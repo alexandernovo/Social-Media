@@ -1,9 +1,12 @@
 import React from 'react'
+import ToPost from '@/components/ToPost'
+import Post from '@/components/Post'
 
 const Home: React.FC = () => {
     return (
         <div>
-            <p>Hello</p>
+            <ToPost Class='mb-3' />
+            <Post />
         </div>
     )
 }

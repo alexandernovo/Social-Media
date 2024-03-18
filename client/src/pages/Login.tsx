@@ -3,6 +3,7 @@ import bg from '@images/bg.jpg'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import InputFloatingLabel from '@components/InputFloatingLabel'
+import Navbar from '@/components/Navbar';
 import Button from '@components/Button'
 import { useDispatch } from 'react-redux';
 import { storeUser } from '@store/user/userSlice';
@@ -30,7 +31,8 @@ const Login: React.FC = () => {
             if (response.data && response.data.status === 'success') {
                 const { token, userdata } = response.data;
                 console.log(userdata);
-                
+                console.log(token);
+
                 const userToStore = {
                     _id: userdata._id,
                     token: token,
@@ -54,27 +56,30 @@ const Login: React.FC = () => {
     };
 
     return (
-        <div className="h-[100vh] w-100 flex">
-            <div className="lg:w-1/2 flex items-center h-[100%] justify-center">
-                <img src={bg} />
-            </div>
-            <div className="lg:w-1/2 flex items-center justify-center">
-                <div className="w-1/2">
-                    <form onSubmit={handleSubmit}>
-                        <div className='mb-4'>
-                            <InputFloatingLabel Id='username' OnChange={handleUsernameChange} Label="Username" />
-                            {error?.errorCall === 'username' && (
-                                <p className='m-0 text-[12px] text-red-500 mt-1'>{error.message}</p>
-                            )}
-                        </div>
-                        <div className='mb-4'>
-                            <InputFloatingLabel Id='password' OnChange={handlePasswordChange} Label="Password" Type='password' />
-                            {error?.errorCall === 'password' && (
-                                <p className='m-0 text-[12px] text-red-500 mt-1'>{error.message}</p>
-                            )}
-                        </div>
-                        <Button Type='submit'>SIGN IN</Button>
-                    </form>
+        <div className="h-[100vh] w-100">
+            <Navbar />
+            <div className='flex items-center justify-center mt-2'>
+                <div className="lg:w-1/2 flex items-center h-[100%] justify-center">
+                    <img src={bg} />
+                </div>
+                <div className="lg:w-1/2 flex items-center justify-center">
+                    <div className="w-1/2">
+                        <form onSubmit={handleSubmit}>
+                            <div className='mb-4'>
+                                <InputFloatingLabel Id='username' OnChange={handleUsernameChange} Label="Username" />
+                                {error?.errorCall === 'username' && (
+                                    <p className='m-0 text-[12px] text-red-500 mt-1'>{error.message}</p>
+                                )}
+                            </div>
+                            <div className='mb-4'>
+                                <InputFloatingLabel Id='password' OnChange={handlePasswordChange} Label="Password" Type='password' />
+                                {error?.errorCall === 'password' && (
+                                    <p className='m-0 text-[12px] text-red-500 mt-1'>{error.message}</p>
+                                )}
+                            </div>
+                            <Button Type='submit'>SIGN IN</Button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
