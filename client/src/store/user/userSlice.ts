@@ -28,9 +28,12 @@ const userSlice = createSlice({
         },
         setIsSignedIn: (state, action: PayloadAction<boolean>) => {
             state.isSignedIn = action.payload;
+        },
+        setToken: (state, action: PayloadAction<string>) => {
+            state.token = action.payload;
         }
     }
 });
 
-export const { storeUser, removeUser, setIsSignedIn } = userSlice.actions;
+export const { storeUser, removeUser, setIsSignedIn, setToken } = userSlice.actions;
 export default userSlice.reducer;
