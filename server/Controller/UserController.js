@@ -82,6 +82,19 @@ class UserController {
         }
     });
 
+    authToken = asyncHandler(async (req, res) => {
+        const token = req.headers.authorization;
+        if (!token) {
+            return res.status(401).json({ status: 'invalid', message: 'Token not provided' });
+        }
+        try {
+            const decoded = jwt.verify(token.replace('Bearer ', ''), process.env.SECRET_KEY);
+            const userData = await this.userModel.getUserById(decoded.userId);
+            return res.status(200).json({ status: 'valid', message: 'Authenticated', user: userData });
+        } catch (error) {
+            return res.status(401).json({ status: 'invalid', message: 'Token is not valid' });
+        }
+    });
     //session data
     getSession = asyncHandler(async (req, res) => {
         const token = req.headers.authorization;
