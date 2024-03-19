@@ -14,10 +14,10 @@ const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
         <>
             {isSignedIn ? (
                 <div className="h-[100vh] flex flex-col">
-                    <Navbar />
+                    <Navbar Class='px-3 top-0 sticky z-10' />
                     <div className='flex flex-1'>
-                        <Sidebar />
-                        <div className='bg-[#F0F3F4] flex-1 p-4'>
+                        <Sidebar Class='top-[63.99px] fixed px-3' />
+                        <div className='bg-[#F0F3F4] flex-1 p-4 ms-[300px]'>
                             {props.children}
                         </div>
                         <Rightbar />
