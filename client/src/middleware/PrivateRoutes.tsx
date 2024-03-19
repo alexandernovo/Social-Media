@@ -19,7 +19,7 @@ const PrivateRoutes: React.FC = () => {
     }
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
+        const token: string | null = localStorage.getItem('token');
 
         if (token) {
             axios.post('/api/users/authToken', null, {
