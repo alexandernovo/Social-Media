@@ -5,14 +5,11 @@ interface PostProps {
 }
 
 const Post: React.FC<PostProps> = (props: PostProps) => {
-    const classes: string = `${props.Class} card w-100 h-[400px] bg-base-100 shadow-xl`;
+    const classes: string = `${props.Class} card w-100 h-[400px] bg-base-100 shadow-sm rounded-[8px]`;
     return (
         <div className={classes}>
             <div className="card-body">
-                <h2 className="card-title">Card title!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                <div className='w-[45px] h-[45px] overflow-hidden border border-gray-300 rounded-full'>
                 </div>
             </div>
         </div>
