@@ -27,7 +27,7 @@ const ToPost: React.FC<ToPostProps> = (props: ToPostProps) => {
             if (textarea.scrollHeight > window.innerHeight * 0.08) {
                 textarea.style.height = 'auto';
                 textarea.style.height = `${textarea.scrollHeight}px`;
-                textarea.className = 'overflow-auto';
+                textarea.className += 'overflow-auto';
             } else {
                 textarea.style.height = '7vh'; // Set a fixed height when content is less than or equal to 
                 textarea.className += 'overflow-hidden';
