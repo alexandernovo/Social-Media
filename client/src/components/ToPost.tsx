@@ -24,7 +24,7 @@ const ToPost: React.FC<ToPostProps> = (props: ToPostProps) => {
 
     const adjustTextareaHeight = (textarea: HTMLTextAreaElement) => {
         if (textarea.value != "") {
-            if (textarea.scrollHeight > window.innerHeight * 0.08) {
+            if (textarea.scrollHeight > window.innerHeight * 0.07) {
                 textarea.style.height = 'auto';
                 textarea.style.height = `${textarea.scrollHeight}px`;
                 textarea.className += 'overflow-auto';
