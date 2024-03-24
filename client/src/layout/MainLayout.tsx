@@ -4,12 +4,15 @@ import Navbar from '@components/Navbar';
 import Rightbar from '@components/Rightbar';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/store';
+import Toast from '@/components/Toast';
 interface MainLayoutProps {
     children: React.ReactNode,
 }
 
 const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
     const isSignedIn: boolean = useSelector((state: RootState) => state.userState.isSignedIn);
+    const isToast: boolean = useSelector((state: RootState) => state.globalState.toast);
+    const ToastMessage: string = useSelector((state: RootState) => state.globalState.toastMessage);
     return (
         <>
             {isSignedIn ? (
@@ -28,6 +31,11 @@ const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
                     <div className="h-[100vh]">
                         {props.children}
                     </div>
+                )}
+
+            {isToast ??
+                (
+                    <Toast Message={ToastMessage} Success={true} Position='BottomRight' />
                 )}
         </>
     );

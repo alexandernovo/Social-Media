@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 class ImageModel {
     constructor() {
-        this.User = mongoose.model('Image', new mongoose.Schema(
+        this.Image = mongoose.model('Image', new mongoose.Schema(
             {
                 file: {
-                    type: String,
+                    type: Buffer,
                     required: true
                 },
                 post_id: {
@@ -53,7 +53,6 @@ class ImageModel {
         }
     }
 
-    //pass and object here, example {username : username}
     async getPostByProps(data) {
         try {
             return await this.Image.findOne(data);
@@ -69,8 +68,6 @@ class ImageModel {
             throw error;
         }
     }
-
-
 }
 
 module.exports = ImageModel;

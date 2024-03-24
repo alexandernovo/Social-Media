@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 class PostModel {
     constructor() {
-        this.User = mongoose.model('Post', new mongoose.Schema(
+        this.Post = mongoose.model('Post', new mongoose.Schema(
             {
                 title: {
                     type: String,

@@ -28,7 +28,8 @@
       "@layout/*": ["src/layout/*"],
       "@images/*": ["src/assets/images/*"],
       "@assets/*": ["src/assets/*"],
-      "@store/*": ["src/store/*"]
+      "@store/*": ["src/store/*"],
+      "@utils/*": ["src/utils/*"]
     }
   },
   "include": ["src"],

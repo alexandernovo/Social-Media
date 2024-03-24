@@ -11,6 +11,7 @@ const port = process.env.PORT;
 const userRoute = require('./Routes/UserRoute');
 const authRoute = require('./Routes/AuthRoutes');
 const chatRoute = require('./Routes/ChatRoute');
+const postRoute = require('./Routes/PostRoute');
 const DbConnect = require('./Config/Database');
 const path = require('path');
 
@@ -40,10 +41,12 @@ class ChatApp {
         const userRouteInstance = new userRoute();
         const authRouteInstance = new authRoute();
         const chatRouteInstance = new chatRoute();
+        const postRouteInstance = new postRoute();
 
         this.app.use('/api/users', userRouteInstance.getRouter());
         this.app.use('/api/authToken', authRouteInstance.getRouter());
         this.app.use('/api/chat', chatRouteInstance.getRouter());
+        this.app.use('/api/post', postRouteInstance.getRouter());
         this.io.on('connection', (socket) => { chatRouteInstance.handleSocket(this.io, socket); });
         this.app.use(errorHandler);
     }

@@ -9,7 +9,7 @@ class PostRoute {
 
     setupRoutes() {
         const postController = new PostController();
-        this.router.post('/', postController.createUser.bind(postController));
+        this.router.post('/', postController.createPost.bind(postController));
     }
 
     getRouter() {
@@ -17,4 +17,4 @@ class PostRoute {
     }
 }
 
-module.exports = UserRoute;
+module.exports = PostRoute;
